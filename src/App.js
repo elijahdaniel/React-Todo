@@ -1,16 +1,29 @@
-import React from 'react';
+import React from 'react'
 
-class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+import './components/TodoComponents/Todo.css'
+
+const userTask = [
+  {
+    task: 'Mow the lawn',
+    id: 412356,
+    complete: false
+  },
+  {
+    task: 'Study',
+    id: 412357,
+    complete: false
+  }
+]
+
+export default class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      userTask
+    }
+  }
+
   render() {
-    return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-      </div>
-    );
+    return <div className='App'></div>
   }
 }
-
-export default App;
