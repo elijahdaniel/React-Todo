@@ -8,6 +8,8 @@
     position: relative;
     top: 30px;
     font-family: Roboto;
+    box-shadow: 0px 7px 20px -13px #593f7b;
+    transition: all 1s ease;
 }
 
 .header {
@@ -20,7 +22,7 @@
     font-size: .8rem;
     font-weight: 300;
     background: white;
-    padding-top: 23px;
+    padding-top: 27px;
     padding-left: 50px;
     padding-right: 50px;
     padding-bottom: 20px;
@@ -58,6 +60,17 @@
     background: #5a3ada;
 }
 
+.item.complete:after {
+    position: relative;
+    left: 0;
+    top: -48%;
+    height: 1px;
+    background: #f7f9fa;
+    content: '';
+    width: 100%;
+    display: block;
+}
+
 form {
     width: 100%;
     display: flex;
@@ -76,13 +89,19 @@ form > .text-field {
 .clear-btn {
     margin-top: 16px;
     border: 0;
+    border-radius: 5px;
     outline: 0;
     color: #5a3ada;
     text-align: right;
-    background: transparent;
+    background: white;
     font-size: 1rem;
+    position: relative;
+    left: 78.4%;
+    padding: 11px 20px;
+    box-shadow: 0px 9px 15px -10px #593f7b;
 }
 
 .clear-btn:hover {
     cursor: pointer;
+    opacity: .8;
 }

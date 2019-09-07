@@ -5,13 +5,13 @@ import './components/TodoComponents/Todo.css'
 
 const userTask = [
   {
-    task: 'Mow the lawn',
-    id: 412356,
+    task: 'Organize Garage',
+    id: 1528817077286,
     complete: false
   },
   {
-    task: "Study for tomorrow's test",
-    id: 412357,
+    task: 'Bake Cookies',
+    id: 1528817084358,
     complete: false
   }
 ]
