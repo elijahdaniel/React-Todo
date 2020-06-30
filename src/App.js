@@ -1,16 +1,75 @@
-import React from 'react';
+import React from 'react'
+import TodoList from './components/TodoComponents/TodoList'
+import TodoForm from './components/TodoComponents/TodoForm'
+import './components/TodoComponents/Todo.css'
 
-class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+const userTask = [
+  {
+    task: 'Organize Garage',
+    id: 1528817077286,
+    complete: false
+  },
+  {
+    task: 'Bake Cookies',
+    id: 1528817084358,
+    complete: false
+  }
+]
+
+export default class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      userTask
+    }
+  }
+
+  addItem = (e, itemName) => {
+    e.preventDefault()
+    const existing = this.state.userTask.filter(item => item.name === itemName)
+    if (existing.length === 0) {
+      const newItem = {
+        task: itemName,
+        id: Date.now(),
+        complete: false
+      }
+      this.setState({
+        userTask: [...this.state.userTask, newItem]
+      })
+    }
+  }
+
+  clearList = e => {
+    e.preventDefault()
+    this.setState({
+      userTask: this.state.userTask.filter(item => !item.complete)
+    })
+  }
+
+  toggleItem = itemId => {
+    this.setState({
+      userTask: this.state.userTask.map(item => {
+        if (item.id === itemId) {
+          return { ...item, complete: !item.complete }
+        }
+        return item
+      })
+    })
+  }
+
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className='App'>
+        <div className='header'>
+          <span className='title'>To-do List</span>
+        </div>
+        <TodoForm addItem={this.addItem} />
+        <TodoList
+          userTask={this.state.userTask}
+          toggleItem={this.toggleItem}
+          clearList={this.clearList}
+        />
       </div>
-    );
+    )
   }
 }
-
-export default App;
